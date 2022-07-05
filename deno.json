@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "lib": [
+      "ES2021",
+      "deno.window"
+    ],
+    "strict": true
+  }
+}
