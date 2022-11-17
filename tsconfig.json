@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext", "dom"],
+    "outDir": "lib",
+    "removeComments": true,
+    "target": "ES6",
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "paths": {},
+    "sourceMap": true,
+    "alwaysStrict": true,
+    "strict": true,
+    "allowUnreachableCode": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedParameters": true
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules/**/*"]
+}
