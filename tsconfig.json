@@ -16,7 +16,8 @@
     "strictNullChecks": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": false,
+    "noUnusedLocals": false
   },
   "include": ["./**/*.ts"],
   "exclude": ["node_modules/**/*"]
