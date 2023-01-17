@@ -18,16 +18,21 @@ type GetElementType<T extends any[]> = T extends Array<infer U> ? U : never;
 
 type UserFoo = typeof users[number];
 
-interface Point {
+type Point = {
   x: number;
   y: number;
-}
+};
 
 type P = keyof Point;
 
-const x: P = {
+const keyOf = "x";
+
+const x: Point = {
   x: 3,
   y: 9,
 };
 
-console.log(x);
+type User = {
+  id: number;
+  name: string;
+};

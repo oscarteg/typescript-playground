@@ -16,5 +16,6 @@ module.exports = {
   rules: {
     "@typescript-eslint/no-unused-vars": "off",
     "neverthrow/must-use-result": "error",
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"]
   },
 };

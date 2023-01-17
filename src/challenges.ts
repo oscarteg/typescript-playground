@@ -1,7 +1,7 @@
 import type { Expect, Equal } from "./type-utils";
 
 // PickByType
-interface Model {
+type Model = {
   name: string;
   count: number;
   isReadonly: boolean;
@@ -57,13 +57,13 @@ type MyPick<Obj, Key extends keyof Obj> = {
   [K in Key]: Obj[K];
 };
 
-interface Todo {
+type Todo = {
   title: string;
   description: string;
   completed: boolean;
 }
 
-interface Expected {
+type Expected = {
   title: string;
 }
 
