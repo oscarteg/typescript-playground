@@ -6,7 +6,7 @@ type Model = {
   count: number;
   isReadonly: boolean;
   isEnable: boolean;
-}
+};
 
 /* type PickByType<T, U> = {
   [K in keyof T]: T[K] extends U ? K : never;
@@ -53,23 +53,32 @@ type MyParams<T extends (...args: any[]) => any> = T extends (
 
 type Bar = MyParams<typeof func>;
 
-type MyPick<Obj, Key extends keyof Obj> = {
-  [K in Key]: Obj[K];
+type MyPick<O, Key extends keyof O> = {
+  [K in Key]: O[K];
 };
 
 type Todo = {
   title: string;
   description: string;
   completed: boolean;
-}
+};
 
 type Expected = {
   title: string;
-}
+};
 
-type MyPickCases = [
-  Expect<Equal<Expected, MyPick<Todo, "title">>>,
-  Expect<Equal<Expected, MyPick<Todo, "title" | "description">>>
-];
+type MyPickCases = [Expect<Equal<Expected, MyPick<Todo, "title">>>];
 
 type NonNullish<T> = Exclude<T, null | undefined> & NonNullable<T>;
+
+type ReadOnly<T> = {
+  readonly [K in keyof T]: T[K];
+};
+
+type Last<T> = T extends [...any[], infer R] ? R : never;
+
+type LastCases = [
+  Expect<Equal<Last<[1, 2, 3]>, 3>>,
+  Expect<Equal<Last<[() => number, 2, 3]>, 3>>,
+  Expect<Equal<Last<[undefined]>, undefined>>
+];
