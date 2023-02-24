@@ -1,4 +1,5 @@
-import type { Expect, Equal } from "./type-utils";
+// ============= Test Cases =============
+import type { Equal, Expect } from "./type-utils";
 
 // PickByType
 type Model = {
@@ -57,6 +58,11 @@ type MyPick<O, Key extends keyof O> = {
   [K in Key]: O[K];
 };
 
+// We can use {} instead of Record<string, never> because Record<string, never> is a subtype of {}
+type MyPick2<T extends {}, K extends keyof T> = {
+  [U in K]: T[U];
+};
+
 type Todo = {
   title: string;
   description: string;
@@ -82,3 +88,47 @@ type LastCases = [
   Expect<Equal<Last<[() => number, 2, 3]>, 3>>,
   Expect<Equal<Last<[undefined]>, undefined>>
 ];
+
+type Cat = {
+  type: "cat";
+  breeds: "Abyssinian" | "Shorthair" | "Curl" | "Bengal";
+};
+
+type Dog = {
+  type: "dog";
+  breeds: "Hound" | "Brittany" | "Bulldog" | "Boxer";
+  color: "brown" | "white" | "black";
+};
+
+type Animal = Cat | Dog;
+
+type Extract<T, U> = T extends U ? T : never;
+
+type LookUp<U extends { type: string }, T extends U["type"]> = Extract<
+  U,
+  { type: T }
+>;
+
+type A1 = LookUp<Animal, "dog">;
+type B1 = Dog;
+type C1 = Expect<Equal<A1, B1>>;
+
+type A2 = LookUp<Animal, "cat">;
+type B2 = Cat;
+type C2 = Expect<Equal<A2, B2>>;
+
+type Mutable<T extends Record<string, unknown>> = {
+  -readonly [P in keyof T]: T[P];
+};
+
+type L = Mutable<{
+  [Symbol.iterator]: (...args: any[]) => any;
+}>;
+
+type ObjectEntries<T, U extends keyof T = keyof T> = U extends unknown
+  ? [U, T[U] extends infer F | undefined ? F : T[U]]
+  : [];
+
+type A = ObjectEntries<{ foo: "bar"; baz: 42 }>;
+type B = ["foo", "bar"] | ["baz", 42];
+type C = Expect<Equal<A, B>>;

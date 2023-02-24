@@ -17,7 +17,7 @@ function fail(message: string): never {
   throw new Error(message);
 }
 
-// Inferred return typ: void
+// Inferred return type: void
 function failDeclaration(message: string): void {
   throw new Error(message);
 }

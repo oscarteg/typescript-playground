@@ -1,20 +1,21 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@typescript-eslint/eslint-plugin': ^5.47.0
-  eslint: ^8.30.0
+  '@types/react': ^18.0.27
+  '@typescript-eslint/eslint-plugin': ^5.0.0
+  eslint: ^8.0.1
   eslint-config-prettier: ^8.5.0
   eslint-config-standard-with-typescript: ^23.0.0
-  eslint-plugin-import: ^2.26.0
-  eslint-plugin-n: ^15.6.0
+  eslint-plugin-import: ^2.25.2
+  eslint-plugin-n: ^15.0.0
   eslint-plugin-neverthrow: ^1.1.4
-  eslint-plugin-promise: ^6.1.1
-  neverthrow: ^5.1.0
-  prettier: ^2.8.1
+  eslint-plugin-promise: ^6.0.0
+  neverthrow: ^5.0.0
+  prettier: ^2.7.1
   ramda: ^0.28.0
   ts-essentials: ^9.3.0
-  tsafe: ^1.4.1
-  typescript: ^4.9.4
+  tsafe: ^1.0.1
+  typescript: '*'
   vitest: ^0.23.4
 
 dependencies:
@@ -23,6 +24,7 @@ dependencies:
   ts-essentials: 9.3.0_typescript@4.9.4
 
 devDependencies:
+  '@types/react': 18.0.27
   '@typescript-eslint/eslint-plugin': 5.47.0_lzzuuodtsqwxnvqeq4g4likcqa
   eslint: 8.30.0
   eslint-config-prettier: 8.5.0_eslint@8.30.0
@@ -152,6 +154,22 @@ packages:
 
   /@types/node/18.11.17:
     resolution: {integrity: sha512-HJSUJmni4BeDHhfzn6nF0sVmd1SMezP7/4F0Lq+aXzmp2xm9O7WXrUtHW/CHlYVtZUbByEvWidHqRtcJXGF2Ng==}
+    dev: true
+
+  /@types/prop-types/15.7.5:
+    resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
+    dev: true
+
+  /@types/react/18.0.27:
+    resolution: {integrity: sha512-3vtRKHgVxu3Jp9t718R9BuzoD4NcQ8YJ5XRzsSKxNDiDonD2MXIT1TmSkenxuCycZJoQT5d2vE8LwWJxBC1gmA==}
+    dependencies:
+      '@types/prop-types': 15.7.5
+      '@types/scheduler': 0.16.2
+      csstype: 3.1.1
+    dev: true
+
+  /@types/scheduler/0.16.2:
+    resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
     dev: true
 
   /@types/semver/7.3.13:
@@ -438,6 +456,10 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+    dev: true
+
+  /csstype/3.1.1:
+    resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
     dev: true
 
   /debug/2.6.9:
