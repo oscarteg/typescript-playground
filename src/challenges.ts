@@ -132,3 +132,21 @@ type ObjectEntries<T, U extends keyof T = keyof T> = U extends unknown
 type A = ObjectEntries<{ foo: "bar"; baz: 42 }>;
 type B = ["foo", "bar"] | ["baz", 42];
 type C = Expect<Equal<A, B>>;
+
+// enum Anus {
+//   A = "A",
+// }
+
+const Anus = {
+  A: "A",
+  B: "B",
+} as const;
+
+type Kont = (typeof Anus)[keyof typeof Anus];
+
+declare function Foo(a: Kont): void;
+
+Foo("A");
+
+// Foo("A");
+//

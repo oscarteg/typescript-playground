@@ -69,3 +69,4 @@ type State = ReturnType<typeof getVisualisationConfigurationFromOptions>;
 
 const faa = ["a", "b"] as const;
 //    ^?
+//

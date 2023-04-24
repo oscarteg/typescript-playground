@@ -26,7 +26,7 @@ function testFoo(foo: Foo): Foo {
 
 testFoo(Foo.Bar);
 
-function toEnumFoo(str: string) {
+function toEnumFoo(str: string): Foo {
   switch (str) {
     case "bar":
       return Foo.Bar;

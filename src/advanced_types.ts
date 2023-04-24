@@ -16,7 +16,7 @@ const users = [
 
 type GetElementType<T extends any[]> = T extends Array<infer U> ? U : never;
 
-type UserFoo = typeof users[number];
+type UserFoo = (typeof users)[number];
 
 type Point = {
   x: number;
@@ -36,3 +36,5 @@ type User = {
   id: number;
   name: string;
 };
+
+console.log("asdas");

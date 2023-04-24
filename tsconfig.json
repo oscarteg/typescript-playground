@@ -3,7 +3,8 @@
     "lib": ["ESNext", "dom"],
     "outDir": "lib",
     "removeComments": true,
-    "target": "ES6",
+    "module": "esnext",
+    "target": "esnext",
     "baseUrl": "./",
     "esModuleInterop": true,
     "moduleResolution": "node",
@@ -17,7 +18,8 @@
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
     "noUnusedParameters": false,
-    "noUnusedLocals": false
+    "noUnusedLocals": false,
+    "types": ["bun-types"]
   },
   "include": ["./**/*.ts"],
   "exclude": ["node_modules/**/*"]
