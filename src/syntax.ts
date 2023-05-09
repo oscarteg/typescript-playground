@@ -1,4 +1,16 @@
-let title: string;
-title ||= "untitled";
+import { match } from "ts-pattern";
 
-console.log(title);
+const state = { status: "loading" } as const;
+
+type fetchState =
+  | { status: "loading" }
+  | { status: "success"; data: string }
+  | { status: "error" };
+
+function patternMatching(): void {
+  return match<fetchState>(state)
+    .with({ status: "loading" }, () => console.log("loading"))
+    .with({ status: "success" }, ({ data }) => console.log(data))
+    .with({ status: "error" }, () => console.log("error"))
+    .exhaustive();
+}

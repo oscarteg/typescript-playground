@@ -1,6 +1,6 @@
 import { StrictExtract } from "ts-essentials";
 
-interface Paragraph {
+type Paragraph = {
   type: "paragraph";
   paragraph: {
     rich_text: string;
@@ -8,7 +8,7 @@ interface Paragraph {
   };
 }
 
-interface Heading {
+type Heading = {
   type: "heading";
   heading: {
     rich_text: string;
