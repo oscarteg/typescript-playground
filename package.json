@@ -27,10 +27,13 @@
     "bun-types": "^0.5.8"
   },
   "dependencies": {
-    "arktype": "^1.0.13-alpha",
+    "@influxdata/giraffe": "^2.38.1",
+    "arktype": "^1.0.14-alpha",
     "neverthrow": "^5.0.0",
     "radash": "^10.8.1",
     "ramda": "^0.28.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "ts-essentials": "^9.3.0",
     "ts-pattern": "^4.2.2",
     "yup": "^1.1.1",

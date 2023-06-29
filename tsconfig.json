@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext", "dom"],
+    "lib": [
+      "ESNext",
+      "dom"
+    ],
     "outDir": "lib",
     "removeComments": true,
     "module": "esnext",
@@ -19,8 +22,14 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedParameters": false,
     "noUnusedLocals": false,
-    "types": ["bun-types"]
+    "types": [
+      "bun-types"
+    ]
   },
-  "include": ["./**/*.ts"],
-  "exclude": ["node_modules/**/*"]
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "node_modules/**/*"
+  ]
 }
