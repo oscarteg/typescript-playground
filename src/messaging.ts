@@ -1,3 +1,6 @@
+import { Buffer } from "node:buffer";
+
+// Prints: <Buffer 00 00 00 00 00>
 // Here follows the payload specification:
 // | Offset    | Description                                                                                                        |
 // |-----------|--------------------------------------------------------------------------------------------------------------------|
@@ -36,6 +39,9 @@ function decode(s: string): Payload {
   // 1 byte, offset 8, mask with 0b00000010 to get the second bit, cast to boolean
   const fixFailed = Boolean(buffer.readUInt8(8) & 0b00000010);
   // 1 byte, offset 8, shift 2 bits to the right to get the rest of the bits, cast to number
+  // before: 0b00000010 -> true
+  // after: 0b00000000 -> false
+
   const heading = buffer.readUInt8(8) >> 2;
 
   const speed = buffer.readUInt8(9);
@@ -64,7 +70,7 @@ function decode(s: string): Payload {
 // }
 
 console.log(decode("943f2f1f5d5cd8020200d1"));
-console.log(decode(`32ea6e2022def602312fc2`));
+// console.log(decode(`32ea6e2022def602312fc2`));
 // ```javascript
 // {
 //   latitude: 54.4139826,
