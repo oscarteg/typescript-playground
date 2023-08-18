@@ -36,3 +36,11 @@ function toEnumFoo(str: string): Foo {
       throw Error("Invalid enum value");
   }
 }
+
+const paths = {
+  home: "/",
+  user: "/users",
+  usersId: (id: string) => `/users/${id}`,
+} as const;
+
+const homePath = paths.home;

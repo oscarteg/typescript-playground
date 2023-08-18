@@ -13,21 +13,21 @@ class TreeNode {
     while (true) {
       if (data > this.current.data) {
         // search for an empty position in the right subtree
-        if (current.rightNode) {
-          current = current.rightNode;
+        if (current.rightnode) {
+          current = current.rightnode;
         } else {
           // insert node
-          current.rightNode = new Node(data);
-          return current.rightNode;
+          current.rightnode = new node(data);
+          return current.rightnode;
         }
       } else {
         // search for an empty position in the left subtree
-        if (current.leftNode) {
-          current = current.leftNode;
+        if (current.leftnode) {
+          current = current.leftnode;
         } else {
           // insert node
-          current.leftNode = new Node(data);
-          return current.leftNode;
+          current.leftnode = new node(data);
+          return current.leftnode;
         }
       }
     }
