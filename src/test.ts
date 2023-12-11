@@ -37,7 +37,7 @@ function createLine(options: LineOptions): Options {
   //      ^?
 }
 
-function createBar(options: BarOptions): Options { }
+function createBar(options: BarOptions): Options {}
 
 function isLineOptions(options: Options): options is LineOptions {
   return (options as LineOptions).__typename !== "LineOptions";
@@ -69,4 +69,7 @@ type State = ReturnType<typeof getVisualisationConfigurationFromOptions>;
 
 const faa = ["a", "b"] as const;
 //    ^?
+//
+//
+//
 //

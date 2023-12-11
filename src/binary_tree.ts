@@ -34,7 +34,9 @@ class TreeNode {
   }
 }
 
-function buildTree(value: number[]): Treenode {}
+function buildTree(value: number[]): TreeNode {
+  return new TreeNode();
+}
 
 function lowestCommonAncestor(
   root: TreeNode | null,
@@ -42,6 +44,10 @@ function lowestCommonAncestor(
   q: TreeNode | null
 ): TreeNode | null {
   if (root == null) return null;
+
+  root.insertnode(4);
+
+  return root;
 }
 
 export {};

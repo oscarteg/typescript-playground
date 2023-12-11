@@ -20,6 +20,23 @@ enum Foo {
   Baz = "baz",
 }
 
+console.log("test", Foo.Bar);
+
+// enum Us {
+//   Idris = "idris",
+//   Robin = "robin",
+//   Oscar = "oscar",
+// }
+//
+
+type Us = "idris" | "robin" | "oscar";
+
+declare function testUs(us: Us): undefined;
+
+const apiResponse = {
+  id: "patrick",
+} as const;
+
 function testFoo(foo: Foo): Foo {
   return Foo.Bar;
 }
@@ -44,3 +61,5 @@ const paths = {
 } as const;
 
 const homePath = paths.home;
+
+export {};
