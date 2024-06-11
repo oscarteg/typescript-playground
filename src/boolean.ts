@@ -1,5 +1,5 @@
 type Player = {
-  name: string;
+	name: string;
 };
 
 declare function useState<T>(initialValue?: T): [T, (value: T) => void];
@@ -13,5 +13,5 @@ player ?? VideoPlayer(player);
 // ^?
 
 if (player !== null) {
-  VideoPlayer(player);
+	VideoPlayer(player);
 }

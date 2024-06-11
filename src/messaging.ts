@@ -15,48 +15,48 @@ import { Buffer } from "node:buffer";
 // All data in the payloads is little endian.
 
 type Payload = {
-  latitude: number;
-  longitude: number;
-  inTrip: boolean;
-  fixFailed: boolean;
-  heading: number;
-  speed: number;
-  batteryVoltage: number;
+	latitude: number;
+	longitude: number;
+	inTrip: boolean;
+	fixFailed: boolean;
+	heading: number;
+	speed: number;
+	batteryVoltage: number;
 };
 
 function decode(s: string): Payload {
-  const buffer = Buffer.from(s, "hex");
-  console.log(buffer);
+	const buffer = Buffer.from(s, "hex");
+	console.log(buffer);
 
-  // 32 bit signed int
-  const latitude = buffer.readInt32LE(0) / 10000000;
+	// 32 bit signed int
+	const latitude = buffer.readInt32LE(0) / 10000000;
 
-  // 32 bit signed int
-  const longitude = buffer.readInt32LE(4) / 10000000;
+	// 32 bit signed int
+	const longitude = buffer.readInt32LE(4) / 10000000;
 
-  // 1 byte, offset 8, mask with 0b00000001 to get the first bit, cast to boolean
-  const inTrip = Boolean(buffer.readUInt8(8) & 0b00000001);
-  // 1 byte, offset 8, mask with 0b00000010 to get the second bit, cast to boolean
-  const fixFailed = Boolean(buffer.readUInt8(8) & 0b00000010);
-  // 1 byte, offset 8, shift 2 bits to the right to get the rest of the bits, cast to number
-  // before: 0b00000010 -> true
-  // after: 0b00000000 -> false
+	// 1 byte, offset 8, mask with 0b00000001 to get the first bit, cast to boolean
+	const inTrip = Boolean(buffer.readUInt8(8) & 0b00000001);
+	// 1 byte, offset 8, mask with 0b00000010 to get the second bit, cast to boolean
+	const fixFailed = Boolean(buffer.readUInt8(8) & 0b00000010);
+	// 1 byte, offset 8, shift 2 bits to the right to get the rest of the bits, cast to number
+	// before: 0b00000010 -> true
+	// after: 0b00000000 -> false
 
-  const heading = buffer.readUInt8(8) >> 2;
+	const heading = buffer.readUInt8(8) >> 2;
 
-  const speed = buffer.readUInt8(9);
+	const speed = buffer.readUInt8(9);
 
-  const batteryVoltage = buffer.readUInt8(10) / 40;
+	const batteryVoltage = buffer.readUInt8(10) / 40;
 
-  return {
-    latitude,
-    longitude,
-    inTrip,
-    fixFailed,
-    heading,
-    speed,
-    batteryVoltage,
-  };
+	return {
+		latitude,
+		longitude,
+		inTrip,
+		fixFailed,
+		heading,
+		speed,
+		batteryVoltage,
+	};
 }
 
 // {
@@ -70,16 +70,3 @@ function decode(s: string): Payload {
 // }
 
 console.log(decode("943f2f1f5d5cd8020200d1"));
-// console.log(decode(`32ea6e2022def602312fc2`));
-// ```javascript
-// {
-//   latitude: 54.4139826,
-//   longitude: 4.9733154,
-//   inTrip: true,
-//   fixFailed: false,
-//   heading: 67.5,
-//   speed: 47,
-//   batteryVoltage: 4.85
-// }
-
-export {};

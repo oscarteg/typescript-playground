@@ -1,11 +1,11 @@
 import React from "react";
 
 type User = Readonly<{
-  name: string;
+	name: string;
 }>;
 
 const user: User = {
-  name: "John",
+	name: "John",
 };
 
 // const headTypes = Object.freeze({
@@ -17,31 +17,29 @@ test();
 // const test = () => "testin";
 
 function test() {
-  return null;
+	return null;
 }
 
 type Props = {
-  dataOptions: Record<`data-${string}`, string>;
+	dataOptions: Record<`data-${string}`, string>;
 };
 
 function Foo(props: any) {
-  return <div></div>;
+	return <div></div>;
 }
 
 function testDestructuring({ foo = "" }) {
-  console.log(foo || "testin");
+	console.log(foo || "testin");
 
-  console.log(foo);
+	console.log(foo);
 }
 
 testDestructuring({});
 testDestructuring({ foo: null });
 
 window._privacy.push([
-  "onTcString",
-  function () {
-    (tcString) => console.log(tcString);
-  },
+	"onTcString",
+	() => {
+		(tcString) => console.log(tcString);
+	},
 ]);
-
-export {};

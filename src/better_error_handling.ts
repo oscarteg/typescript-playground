@@ -58,9 +58,9 @@ export function err<E>(e: E): Err<E> {
 function divide(a: number, b: number): Result<number, string> {
   if (b === 0) {
     return err("Division by zero");
-  } else {
-    return ok(a / b);
   }
+
+  return ok(a / b);
 }
 
 // Example usage

@@ -7,7 +7,7 @@ type fetchState =
   | { status: "success"; data: string }
   | { status: "error" };
 
-function patternMatching(): void {
+export function patternMatching() {
   return match<fetchState>(state)
     .with({ status: "loading" }, () => console.log("loading"))
     .with({ status: "success" }, ({ data }) => console.log(data))

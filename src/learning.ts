@@ -21,14 +21,14 @@ console.log(Math.max.apply(null, elements));
 
 // Bind
 function Product(name: string, price: number): void {
-  this.name = name;
-  this.price = price;
+	this.name = name;
+	this.price = price;
 }
 
 function Pizza(name, price) {
-  Product.call(this, name, price);
-  this.category = "pizza";
+	Product.call(this, name, price);
+	this.category = "pizza";
 }
 const p = new Pizza("Pepperoni", 8.99);
 
-export {};
+export type {};

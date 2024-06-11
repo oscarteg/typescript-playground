@@ -3,22 +3,22 @@ type FormValues = Record<string, string | Record<string, string>>;
 const test: FormValues = {};
 
 const test2: FormValues = {
-  name: "Oscar",
+	name: "Oscar",
 };
 
 const test3: FormValues = {
-  name: "Oscar",
+	name: "Oscar",
 };
 
 const test4: FormValues = {
-  name: "Oscar",
-  adres: {
-    straat: "",
-  },
+	name: "Oscar",
+	adres: {
+		straat: "",
+	},
 };
 
 interface Adres {
-  adress: string;
+	adress: string;
 }
 
 const array = [undefined, "oscar"];

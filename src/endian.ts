@@ -1,8 +1,8 @@
 function isBigEndian(): boolean {
-  const array = new Uint8Array(4);
-  const view = new Uint32Array(array.buffer);
-  view[0] = 1 & array[0];
-  return !((view[0] = 1) & array[0]);
+	const array = new Uint8Array(4);
+	const view = new Uint32Array(array.buffer);
+	view[0] = 1 & array[0];
+	return !((view[0] = 1) & array[0]);
 }
 
 /* - Het input topic komt niet uit env variabele */

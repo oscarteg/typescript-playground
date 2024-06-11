@@ -28,7 +28,7 @@ type PickByTypeCases = [
   Expect<Equal<PickByType<Model, number>, { count: number }>>
 ];
 
-type First<T extends any[]> = T extends [infer R, ...any[]] ? R : never;
+type First<T extends unknown[]> = T extends [infer R, ...unknown[]] ? R : never;
 
 type FirstCases = [
   Expect<Equal<First<[1, 2, 3]>, 1>>,
@@ -36,23 +36,19 @@ type FirstCases = [
   Expect<Equal<First<[undefined]>, undefined>>
 ];
 
-type ReturnType<T extends (...args: any[]) => any> = T extends (
-  ...args: any[]
+type ReturnType<T extends (...args: unknown[]) => unknown> = T extends (
+  ...args: unknown[]
 ) => infer R
   ? R
   : never;
 
 const func = (a: number, b: number): number => a + b;
 
-type Foo = ReturnType<typeof func>;
-
-type MyParams<T extends (...args: any[]) => any> = T extends (
+type MyParams<T extends (...args: unknown[]) => unknown> = T extends (
   ...args: infer A
-) => any
+) => unknown
   ? A
   : never;
-
-type Bar = MyParams<typeof func>;
 
 type MyPick<O, Key extends keyof O> = {
   [K in Key]: O[K];
@@ -81,7 +77,7 @@ type ReadOnly<T> = {
   readonly [K in keyof T]: T[K];
 };
 
-type Last<T> = T extends [...any[], infer R] ? R : never;
+type Last<T> = T extends [...unknown[], infer R] ? R : never;
 
 type LastCases = [
   Expect<Equal<Last<[1, 2, 3]>, 3>>,
@@ -96,7 +92,7 @@ type Cat = {
 
 type Dog = {
   type: "dog";
-  breeds: "Hound" | "Brittany" | "Bulldog" | "Boxer";
+  breeds: "Hound" | "Brittunknown" | "Bulldog" | "Boxer";
   color: "brown" | "white" | "black";
 };
 
@@ -122,7 +118,7 @@ type Mutable<T extends Record<string, unknown>> = {
 };
 
 type L = Mutable<{
-  [Symbol.iterator]: (...args: any[]) => any;
+  [Symbol.iterator]: (...args: unknown[]) => unknown;
 }>;
 
 type ObjectEntries<T, U extends keyof T = keyof T> = U extends unknown
@@ -142,11 +138,7 @@ const Anus = {
   B: "B",
 } as const;
 
-type Kont = (typeof Anus)[keyof typeof Anus];
-
-declare function Foo(a: Kont): void;
-
-Foo("A");
+export type Kont = (typeof Anus)[keyof typeof Anus];
 
 const ref = {
   count: 1,

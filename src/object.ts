@@ -1,9 +1,9 @@
 const user: User = {
-  name: "oscar",
+	name: "oscar",
 };
 
 type User = {
-  name: string;
+	name: string;
 };
 
 // Object.values(user).forEach(([k, v]) => {
@@ -12,4 +12,4 @@ type User = {
 //
 console.log(Object.entries(user));
 
-export {};
+export type {};

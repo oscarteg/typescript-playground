@@ -1,4 +1,4 @@
-import z, { ZodTypeAny } from "zod";
+import z, { type ZodTypeAny } from "zod";
 // placing shared fields in one place to avoid repetition
 const base = z.object({
   name: z.string(),
@@ -46,9 +46,7 @@ export function safeLoader<
   outputValidation: OutputValidation;
   loader: (...argsList: LoaderInputs) => any;
 }) {
-  return async function (
-    ...args: LoaderInputs
-  ): Promise<z.infer<OutputValidation>> {
+  return async (...args: LoaderInputs): Promise<z.infer<OutputValidation>> => {
     const outputs = await loader.apply(null, args);
     const parsedOutput = outputValidation.parse(outputs);
     return parsedOutput;
