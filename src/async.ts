@@ -11,7 +11,8 @@ async function addUser(name: string): Promise<string> {
 	return await new Promise((resolve, reject) => {
 		setTimeout(() => {
 			database.push(name);
-			reject(new Error());
+
+			// reject(new Error());
 		}, 1000);
 	});
 }
@@ -29,7 +30,7 @@ console.log("after script");
 // RESPONSE
 
 // without calling
-// caller
+// ller
 // calling
 // after caller
 // RESPONSE
@@ -39,3 +40,19 @@ console.log("after script");
 /* after addUser */
 /* after script */
 /* After run */
+
+const data = (async () => {
+	const result: string = await Promise.resolve("test");
+	console.log(`The result is: ${result}`);
+	return result;
+})();
+
+console.log(data);
+
+let response;
+
+try {
+	response = await Promise.resolve(10);
+} catch (error) {
+	console.log(error);
+}
